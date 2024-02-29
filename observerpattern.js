@@ -30,5 +30,21 @@ class Observer{
     }
 }
 
+/*define the TELEPHONE Subject - make it implement SUBJECT Interface*/
+class Telephone extends Subject{
+    constructor(){
+        super();
+    }
+    addPhoneNumber(phonenumber){
+
+    }
+    removePhoneNumber(phonenumber){
+
+    }
+    dialPhoneNumber(phonenumber){
+        this.notifyObservers();
+    }
+}
+
 
 
