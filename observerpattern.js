@@ -17,7 +17,10 @@ class Subject{
 
     }
 
-    notifyObservers(){
+    notifyObservers(data){
+        for(let observer of this.observers){
+            observer.update(data)
+        }
     }
 }
 
@@ -34,18 +37,26 @@ class Observer{
 class Telephone extends Subject{
     constructor(){
         super();
-    this.phonenumber = phonenumber;
+    this.phonenumbers = [];
     }
     addPhoneNumber(phonenumber){
-
+        this.phonenumbers.push(phonenumber);
     }
     removePhoneNumber(phonenumber){
-
+        this.phonenumbers = this.phonenumbers.filter((number => number !== phonenumber))
     }
     dialPhoneNumber(phonenumber){
-        this.notifyObservers();
+        //put conditional statement, that if the dialed number is not added to "PhoneBook", it cannot be dialed
+        let checkedphonenumber = this.phonenumbers.find((number => number === phonenumber))
+        if(checkedphonenumber){
+            this.notifyObservers(checkedphonenumber);
+        } else{
+            console.log(`Oops! Sorry ${checkedphonenumber} has not been added to the PhoneBook, so cannot be dialed./n Please add number to PhoneBook and dial again`)
+        }
+        
     }
 }
+
 
 /* define two different Observers to inherit Observer Interface */
 class PrintNumber extends Observer{
@@ -53,8 +64,8 @@ class PrintNumber extends Observer{
         super();
     }
 
-    update(){
-
+    update(phonenumber){
+        console.log(`Phone Number: ${phonenumber}`)
     }
 }
 
@@ -63,7 +74,7 @@ class PrintNowDialingNumber extends Observer{
         super();
     }
 
-    update(){
-
+    update(phonenumber){
+        console.log(`Now dialing ${phonenumber}`);
     }
 }
