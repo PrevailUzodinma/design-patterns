@@ -30,10 +30,11 @@ class Observer{
     }
 }
 
-/*define the TELEPHONE Subject - make it implement SUBJECT Interface*/
+/* define the TELEPHONE Subject - make it implement SUBJECT Interface */
 class Telephone extends Subject{
     constructor(){
         super();
+    this.phonenumber = phonenumber;
     }
     addPhoneNumber(phonenumber){
 
@@ -46,5 +47,23 @@ class Telephone extends Subject{
     }
 }
 
+/* define two different Observers to inherit Observer Interface */
+class PrintNumber extends Observer{
+    constructor(){
+        super();
+    }
 
+    update(){
 
+    }
+}
+
+class PrintNowDialingNumber extends Observer{
+    constructor(){
+        super();
+    }
+
+    update(){
+
+    }
+}
