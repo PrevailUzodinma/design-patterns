@@ -13,7 +13,7 @@ class Subject {
   }
 
   removeObserver(observer) {
-    this.observers = this.observers.find((obs) => obs !== observer);
+    this.observers = this.observers.filter((obs) => obs !== observer);
   }
 
   notifyObservers(data) {
