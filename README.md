@@ -65,3 +65,5 @@ The `Telephone` class extends the `Subject` class and represents the subject bei
 - If the dialed number is not in the Telephone's list, an error message is displayed.
 
 Feel free to expand and customize the codebase according to your specific requirements.
+
+Happy New Month and Coding!
